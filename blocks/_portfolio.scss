@@ -2,8 +2,7 @@
 
 .portfolio {
 	padding-block: fluid(80,40);
-	background-color: #FDF5E6;
-	background-color: var(--color-black);
+	background-color:var(--color-smoky-black);
 
 	&__container-name {
 		background:url("../assets/background-clip-img.jpg") no-repeat, center/cover;
@@ -24,7 +23,7 @@
 	padding: rem(20) rem(70) rem(50) rem(70);
 
 	@include mobile {
-		padding: rem(20) rem(10) rem(50) rem(10);
+		padding: rem(0) rem(10) rem(50) rem(10);
 	}
 
 	}

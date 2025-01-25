@@ -230,6 +230,7 @@ svg * {
   --color-dark:#252525;
   --color-white:#FFFFFF;
   --color-black:#000000;
+  --color-smoky-black:#100c08;
   --color-gray:#3b3b3b;
   --color-dark-gray:#1E1E1E;
   --color-blue:#052659;
@@ -312,10 +313,24 @@ body a {
 }
 
 .header {
-  background: var(--color-dark) linear-gradient(var(--gradient));
+  position: relative;
+  background: var(--color-black);
   color: var(--color-white);
   padding: clamp(1.25rem, 0.1785714286rem + 5.3571428571vw, 5rem) clamp(1.25rem, -0.5357142857rem + 8.9285714286vw, 7.5rem);
   font-family: var(--font);
+}
+.header__container {
+  position: relative;
+  z-index: 2;
+}
+.header__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
 }
 .header__wrapper {
   display: flex;
@@ -378,8 +393,7 @@ body a {
 
 .portfolio {
   padding-block: clamp(2.5rem, 1.7857142857rem + 3.5714285714vw, 5rem);
-  background-color: #FDF5E6;
-  background-color: var(--color-black);
+  background-color: var(--color-smoky-black);
 }
 .portfolio__container-name {
   background: url("../assets/background-clip-img.jpg") no-repeat, center/cover;
@@ -400,7 +414,7 @@ body a {
 }
 @media (width <= 37.56125rem) {
   .portfolio__item {
-    padding: 1.25rem 0.625rem 3.125rem 0.625rem;
+    padding: 0rem 0.625rem 3.125rem 0.625rem;
   }
 }
 .portfolio__item-image {

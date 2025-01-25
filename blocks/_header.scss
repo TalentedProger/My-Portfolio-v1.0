@@ -2,12 +2,25 @@
 @import './../styles/media';
 
 .header {
-	background: var(--color-dark) linear-gradient(var(--gradient));
+	position: relative;
+	background: var(--color-black);
 	color: var(--color-white);
 	padding: fluid(80,20) fluid(120,20);
-	// border-bottom-right-radius: rem(100);
 	font-family: var(--font);
 
+	&__container {
+		position: relative;
+		z-index: 2;
+	}
+	&__video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.3;
+	}
 	&__wrapper {
 		display: flex;
 		align-items: center;
@@ -63,4 +76,15 @@
 		border-color: var(--color-yellow);
 		transform: scale(102%);	
 	}
+
+	// .header__video  {
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	object-fit: cover;
+	// 	object-position: center;
+	// 	opacity: 0.5;
+	// }
 }
