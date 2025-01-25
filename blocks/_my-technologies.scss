@@ -1,0 +1,107 @@
+@import './../styles/functions', '../styles/media';
+
+.my-technologies {
+	background: url(./../assets/my_techology-background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding-block: fluid(100,40);
+
+}
+.my-technologies__wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: rem(60);
+	align-items: center;
+}
+.my-technologies__title {
+	font-size: fluid(46,24);
+	font-weight: 700;
+	text-align: center;
+	color: var(--color-white);
+}
+.my-technologies__list {
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	column-gap: fluid(50,20);
+	row-gap: fluid(40,20);
+
+	@include mobile {
+	display: grid;
+	grid-template-columns: repeat(2,2fr);
+	column-gap: rem(60);
+	}
+}
+.my-technologies__item {
+	position: relative;
+	width: rem(100);
+	height: rem(100);
+	border-radius: 50%;
+	background-color: var(--color-white);
+
+	&--html::before {
+		background: url("../assets/icons/html-5-svgrepo-com.svg");
+	}
+
+	&--css::before {
+		background: url("../assets/icons/css-3-svgrepo-com.svg");
+	}
+
+	&--js::before {
+		background: url("../assets/icons//js-svgrepo-com.svg");
+	}
+	&--git::before {
+		background: url("../assets/icons/git-svgrepo-com.svg");
+	}
+	&--figma::before {
+		background: url("../assets/icons/figma-svgrepo-com.svg");
+	}
+	&--react::before {
+		background: url("../assets/icons/react-svgrepo-com.svg");
+	}
+	&--scss::before {
+		background: url("../assets/icons/scss-svgrepo-com.svg");
+	}
+	&--sql::before {
+		background: url("../assets/icons/sql-database-sql-azure-svgrepo-com.svg");
+	}
+}
+.my-technologies__item::before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: rem(70);
+	height: rem(70);
+	background-repeat: no-repeat;
+}
+
+
+.my-technologies__item::after {
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background: var(--color-yellow);
+  transform: scale(.9);
+  z-index: -1;
+}
+
+.my-technologies__item:hover::after {
+  transform: scale(1.5);
+  box-shadow: 0 0 15px var(--color-yellow);;
+  filter: blur(10px);
+}
+
+.my-technologies__item:hover {
+  color: var(--color-yellow);
+  box-shadow: 0 0 15px var(--color-yellow);
+	transition: linear 0.4s;
+	background-color: var(--color-black);
+}

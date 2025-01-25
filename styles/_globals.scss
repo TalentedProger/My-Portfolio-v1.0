@@ -1,0 +1,44 @@
+@import './../styles/functions';
+:root {
+	--color-dark:#252525;
+	--color-white:#FFFFFF;
+	--color-black:#000000;
+	--color-gray:#3b3b3b;
+	--color-dark-gray:#1E1E1E;
+	--color-blue:#052659;
+	--color-yellow:#FFD479;
+	--container-width:1170px;
+	--container-padding-x:15px;
+	--gradient: 158deg, #2f2f2f 0%, #202020 100%;
+	--font: "Montserrat";
+	--button-shadow:rgba(0, 0, 0, 0.17) 10px -23px 25px 10px inset, rgba(0, 0, 0, 0.15) 10px -36px 30px 10px inset, rgba(0, 0, 0, 0.1) 10px -79px 40px 10px inset, rgba(0, 0, 0, 0.06) 10px 2px 1px, rgba(0, 0, 0, 0.09) 10px 4px 2px, rgba(0, 0, 0, 0.09) 10px 8px 4px, rgba(0, 0, 0, 0.09) 10px 16px 8px, rgba(0, 0, 0, 0.09) 10px 32px 16px;
+	--transition: linear 0.2s;
+}
+.container {
+	max-width: calc(var(--container-width) + var(--container-padding-x)*2);
+	margin-inline: auto;
+	padding-inline: var(--container-padding-x);
+}
+.button {
+	font-size: rem(16);
+	font-weight: 500;
+	border-radius: rem(8);
+	padding-block: fluid(17,8);
+	padding-inline: fluid(24,10);
+
+	text-decoration: none;
+	color: inherit;
+	background-color: #000;
+
+	&--transparent {
+		background-color: transparent;
+		border: 1px solid var(--color-gray);
+	}
+}
+body {
+	font-family: var(--font);
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}

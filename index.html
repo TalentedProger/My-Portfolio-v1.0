@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles/main.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+	<title>SokurovDesign.com</title>
+</head>
+<body> 
+	<header class="header">
+		<div class="container">
+			<div class="header__wrapper">
+				<img src="./assets/header_img.jpg" alt="programmer_vibe" class="header__image">
+				<div class="header__info">
+					<h1 class="header__info-name">Салим Сокуров</h1>
+					<h3 class="header__info-profession">фрилансер , веб-разработчик , верстальщик , дизайнер</h3>
+					<div class="header__info-btns">
+						<a href="#my_portfolio" class="button portfolio-link">Портфолио</a>
+						<a href="#my_contacts" class="button button--transparent contact-link">Контакты</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<section class="portfolio">
+		<div class="container">
+			<div class="portfolio__container-name">Portfolio for 2025</div>
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="portfolio__item" id="my_portfolio">
+								<a href="" class="portfolio__item-name">Сайт спортивного центра</a>
+								<img src="./assets/portfolio__item-1.jpg" alt="" class="portfolio__item-image">
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="portfolio__item">
+								<a href="" class="portfolio__item-name">Сайт магазина электроники</a>
+								<img src="./assets/portfolio__item-2.jpg" alt="" class="portfolio__item-image">	
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="portfolio__item">
+								<a href="" class="portfolio__item-name">Сайт туристического агенства</a>
+								<img src="./assets/portfolio__item-3.jpg" alt="" class="portfolio__item-image">							
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="portfolio__item">
+								<a href="" class="portfolio__item-name">Генератор цветов настроения</a>
+								<img src="./assets/portfolio__item-4.jpg" alt="" class="portfolio__item-image">							
+							</div>
+						</div>
+					</div>
+					<div class="swiper-pagination"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-scrollbar"></div>
+				</div>
+		</div>
+	</section>
+	<section class="my-technologies">
+		<div class="container">
+			<div class="my-technologies__wrapper">
+				<h2 class="my-technologies__title">Освоенные технологии</h2>
+				<ul class="my-technologies__list">
+					<li class="my-technologies__item my-technologies__item--html"></li>
+					<li class="my-technologies__item my-technologies__item--css"></li>
+					<li class="my-technologies__item my-technologies__item--scss"></li>
+					<li class="my-technologies__item my-technologies__item--git"></li>
+					<li class="my-technologies__item my-technologies__item--js"></li>
+					<li class="my-technologies__item my-technologies__item--figma"></li>
+					<li class="my-technologies__item my-technologies__item--react"></li>
+					<li class="my-technologies__item my-technologies__item--sql"></li>
+				</ul>
+			</div>		
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__main">
+				<h3 class="footer__name">Контакты для связи</h3>
+				<ul class="footer__contact-list" id="my_contacts">
+					<li><a href="./index.html" class="footer__contact-item footer__contact-item--telegram">Связаться в Telegram</a></li>
+					<li><a href="./index.html" class="footer__contact-item footer__contact-item--vk">Связаться Вконтакте</a></li>
+					<li><a href="./index.html" class="footer__contact-item footer__contact-item--wats">Связаться в WhatsApp</a></li>
+					<li><a href="./index.html" class="footer__contact-item footer__contact-item--git">Посетить мой GitHub</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer__extra">
+			<p class="footer__extra-write-time">Свободен для вас в любой день недели с <time datetime="9:00"><b>9</b></time> утра до <time datetime="12:00"><b>12</b></time> ночи.</p>
+			<p class="footer__extra-profession">HTML верстальщик, создание сайтов Адыгея</p>
+			<p class="footer__extra-name">©Salim Sokurov, 2025</p>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<script src="./swiper.js"></script>
+</body>
+</html>

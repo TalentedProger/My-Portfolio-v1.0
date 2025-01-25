@@ -1,0 +1,11 @@
+@use './reset';
+@use './fonts';
+@use './globals';
+@use './media';
+@use './swiper';
+
+// подключение блоков
+@use '../blocks/header';
+@use '../blocks/portfolio';
+@use '../blocks/my-technologies';
+@use '../blocks/footer';

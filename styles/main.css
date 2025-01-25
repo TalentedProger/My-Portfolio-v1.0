@@ -1,0 +1,617 @@
+@charset "UTF-8";
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+ Убираем внутренние отступы слева тегам списков,
+ у которых есть атрибут class
+*/
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+ Убираем внешние отступы body и двум другим тегам,
+ у которых есть атрибут class
+*/
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+ Убираем внешние отступы вертикали нужным тегам,
+ у которых есть атрибут class
+*/
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+ Убираем стандартный маркер маркированному списку,
+ у которого есть атрибут class
+*/
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+ Обнуляем вертикальные внешние отступы параграфа,
+ объявляем локальную переменную для внешнего отступа вниз,
+ чтобы избежать взаимодействие с более сложным селектором
+*/
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+ Внешний отступ вниз для параграфа без атрибута class,
+ который расположен не последним среди своих соседних элементов
+*/
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+ Упрощаем работу с изображениями и видео
+*/
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ Наследуем свойства шрифт для полей ввода
+*/
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  height: 100%;
+  /**
+   Убираем скачок интерфейса по горизонтали
+   при появлении / исчезновении скроллбара
+  */
+  scrollbar-gutter: stable;
+}
+
+/**
+ Плавный скролл
+*/
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+   Пригодится в большинстве ситуаций
+   (когда, например, нужно будет "прижать" футер к низу сайта)
+  */
+  min-height: 100%;
+  /**
+   Унифицированный интерлиньяж
+  */
+}
+
+/**
+ Нормализация высоты элемента ссылки при его инспектировании в DevTools
+*/
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+ Курсор-рука при наведении на элемент
+*/
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+ Приводим к единому цвету svg-элементы
+ (за исключением тех, у которых уже указан
+ атрибут fill со значением 'none' или начинается с 'url')
+*/
+:where([fill]:not([fill=none],
+[fill^=url])) {
+  fill: currentColor;
+}
+
+/**
+ Приводим к единому цвету svg-элементы
+ (за исключением тех, у которых уже указан
+ атрибут stroke со значением 'none')
+*/
+:where([stroke]:not([stroke=none],
+[stroke^=url])) {
+  stroke: currentColor;
+}
+
+/**
+ Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+*/
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+ Приведение рамок таблиц в классический 'collapse' вид
+*/
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+ Удаляем все анимации и переходы для людей,
+ которые предпочитают их не использовать
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat/Montserrat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --color-dark:#252525;
+  --color-white:#FFFFFF;
+  --color-black:#000000;
+  --color-gray:#3b3b3b;
+  --color-dark-gray:#1E1E1E;
+  --color-blue:#052659;
+  --color-yellow:#FFD479;
+  --container-width:1170px;
+  --container-padding-x:15px;
+  --gradient: 158deg, #2f2f2f 0%, #202020 100%;
+  --font: "Montserrat";
+  --button-shadow:rgba(0, 0, 0, 0.17) 10px -23px 25px 10px inset, rgba(0, 0, 0, 0.15) 10px -36px 30px 10px inset, rgba(0, 0, 0, 0.1) 10px -79px 40px 10px inset, rgba(0, 0, 0, 0.06) 10px 2px 1px, rgba(0, 0, 0, 0.09) 10px 4px 2px, rgba(0, 0, 0, 0.09) 10px 8px 4px, rgba(0, 0, 0, 0.09) 10px 16px 8px, rgba(0, 0, 0, 0.09) 10px 32px 16px;
+  --transition: linear 0.2s;
+}
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.button {
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding-block: clamp(0.5rem, 0.3392857143rem + 0.8035714286vw, 1.0625rem);
+  padding-inline: clamp(0.625rem, 0.375rem + 1.25vw, 1.5rem);
+  text-decoration: none;
+  color: inherit;
+  background-color: #000;
+}
+.button--transparent {
+  background-color: transparent;
+  border: 1px solid var(--color-gray);
+}
+
+body {
+  font-family: var(--font);
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.swiper-pagination {
+  padding-block: 0.625rem;
+}
+
+.swiper-button-prev {
+  color: var(--color-white) !important;
+}
+
+.swiper-button-next {
+  color: var(--color-white) !important;
+}
+
+.swiper-scrollbar {
+  height: 6px !important;
+  border-radius: 0.25rem !important;
+  background-color: var(--color-white) !important;
+  width: 80% !important;
+  margin-inline: 10% !important;
+}
+
+.swiper-scrollbar-drag {
+  border-radius: 0.25rem !important;
+  background-color: var(--color-yellow) !important;
+  padding-inline: 1.25rem;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: var(--color-yellow) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--color-white) !important;
+  opacity: 1 !important;
+}
+
+.swiper {
+  margin-top: 1.875rem;
+}
+
+.header {
+  background: var(--color-dark) linear-gradient(var(--gradient));
+  color: var(--color-white);
+  padding: clamp(1.25rem, 0.1785714286rem + 5.3571428571vw, 5rem) clamp(1.25rem, -0.5357142857rem + 8.9285714286vw, 7.5rem);
+  font-family: var(--font);
+}
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3.75rem;
+}
+@media (width <= 63.99875rem) {
+  .header__wrapper {
+    flex-direction: column;
+  }
+}
+.header__image {
+  border-radius: clamp(1.875rem, 0.9821428571rem + 4.4642857143vw, 5rem);
+}
+.header__info {
+  display: flex;
+  flex-direction: column;
+}
+@media (width <= 63.99875rem) {
+  .header__info {
+    align-items: center;
+  }
+}
+.header__info-name {
+  font-size: clamp(2rem, 1.5rem + 2.5vw, 3.75rem);
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+}
+.header__info-profession {
+  font-size: clamp(1.125rem, 0.9821428571rem + 0.7142857143vw, 1.625rem);
+  font-weight: 300;
+  margin-bottom: 1.875rem;
+}
+@media (width <= 63.99875rem) {
+  .header__info-profession {
+    text-align: center;
+  }
+}
+@media (width <= 21.93625rem) {
+  .header__info-profession {
+    text-align: left;
+  }
+}
+.header__info-btns {
+  display: flex;
+  gap: 1.875rem;
+}
+.header .portfolio-link, .header .contact-link {
+  transition: all 0.25s ease-in;
+}
+.header .portfolio-link:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  transform: scale(102%);
+}
+.header .contact-link:hover {
+  border-color: var(--color-yellow);
+  transform: scale(102%);
+}
+
+.portfolio {
+  padding-block: clamp(2.5rem, 1.7857142857rem + 3.5714285714vw, 5rem);
+  background-color: #FDF5E6;
+  background-color: var(--color-black);
+}
+.portfolio__container-name {
+  background: url("../assets/background-clip-img.jpg") no-repeat, center/cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(1.75rem, 1.1428571429rem + 3.0357142857vw, 3.875rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
+.portfolio__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 4.375rem 3.125rem 4.375rem;
+}
+@media (width <= 37.56125rem) {
+  .portfolio__item {
+    padding: 1.25rem 0.625rem 3.125rem 0.625rem;
+  }
+}
+.portfolio__item-image {
+  border-radius: 2.5rem;
+  max-height: 29.375rem;
+}
+.portfolio__item-name {
+  font-weight: 700;
+  font-size: clamp(1rem, 0.8571428571rem + 0.7142857143vw, 1.5rem);
+  color: var(--color-white);
+  text-wrap: nowrap;
+}
+
+.my-technologies {
+  background: url(./../assets/my_techology-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-block: clamp(2.5rem, 1.4285714286rem + 5.3571428571vw, 6.25rem);
+}
+
+.my-technologies__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3.75rem;
+  align-items: center;
+}
+
+.my-technologies__title {
+  font-size: clamp(1.5rem, 1.1071428571rem + 1.9642857143vw, 2.875rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-white);
+}
+
+.my-technologies__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: clamp(1.25rem, 0.7142857143rem + 2.6785714286vw, 3.125rem);
+  row-gap: clamp(1.25rem, 0.8928571429rem + 1.7857142857vw, 2.5rem);
+}
+@media (width <= 37.56125rem) {
+  .my-technologies__list {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    column-gap: 3.75rem;
+  }
+}
+
+.my-technologies__item {
+  position: relative;
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+}
+.my-technologies__item--html::before {
+  background: url("../assets/icons/html-5-svgrepo-com.svg");
+}
+.my-technologies__item--css::before {
+  background: url("../assets/icons/css-3-svgrepo-com.svg");
+}
+.my-technologies__item--js::before {
+  background: url("../assets/icons//js-svgrepo-com.svg");
+}
+.my-technologies__item--git::before {
+  background: url("../assets/icons/git-svgrepo-com.svg");
+}
+.my-technologies__item--figma::before {
+  background: url("../assets/icons/figma-svgrepo-com.svg");
+}
+.my-technologies__item--react::before {
+  background: url("../assets/icons/react-svgrepo-com.svg");
+}
+.my-technologies__item--scss::before {
+  background: url("../assets/icons/scss-svgrepo-com.svg");
+}
+.my-technologies__item--sql::before {
+  background: url("../assets/icons/sql-database-sql-azure-svgrepo-com.svg");
+}
+
+.my-technologies__item::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 4.375rem;
+  height: 4.375rem;
+  background-repeat: no-repeat;
+}
+
+.my-technologies__item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  transform: scale(0.9);
+  z-index: -1;
+}
+
+.my-technologies__item:hover::after {
+  transform: scale(1.5);
+  box-shadow: 0 0 15px var(--color-yellow);
+  filter: blur(10px);
+}
+
+.my-technologies__item:hover {
+  color: var(--color-yellow);
+  box-shadow: 0 0 15px var(--color-yellow);
+  transition: linear 0.4s;
+  background-color: var(--color-black);
+}
+
+.footer {
+  background: var(--color-dark) linear-gradient(var(--gradient));
+  color: var(--color-white);
+}
+.footer__main {
+  padding-block: clamp(2.5rem, 1.7857142857rem + 3.5714285714vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.footer__name {
+  font-size: clamp(1.75rem, 1.2857142857rem + 2.3214285714vw, 3.375rem);
+  font-weight: 700;
+  text-align: center;
+}
+.footer__contact-list {
+  display: grid;
+  gap: clamp(1.875rem, 1.6964285714rem + 0.8928571429vw, 2.5rem);
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 2fr);
+}
+@media (width <= 46.93625rem) {
+  .footer__contact-list {
+    grid-template-columns: repeat(1, 4fr);
+  }
+}
+.footer__contact-item {
+  position: relative;
+  align-items: center;
+  text-wrap: nowrap;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  padding: clamp(0.9375rem, 0.8482142857rem + 0.4464285714vw, 1.25rem) clamp(0.9375rem, 0.8482142857rem + 0.4464285714vw, 1.25rem) clamp(0.9375rem, 0.7589285714rem + 0.8928571429vw, 1.5625rem) 1.5625rem;
+  font-weight: 700;
+  color: var(--color-black);
+  background-color: var(--color-yellow);
+  min-width: 19.625rem;
+  transition: var(--transition);
+}
+.footer__contact-item:hover {
+  background-color: var(--color-white);
+  transform: scale(110%);
+  box-shadow: var(--button-shadow);
+}
+.footer__contact-item--telegram::before {
+  background: url("./../assets/icons/telegram.svg");
+}
+.footer__contact-item--git::before {
+  background: url("./../assets/icons/github-svgrepo-com.svg");
+}
+.footer__contact-item--vk::before {
+  background: url("./../assets/icons/vk.svg");
+}
+.footer__contact-item--wats::before {
+  background: url("./../assets/icons/whatsapp.svg");
+}
+.footer__contact-item::before {
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.625rem;
+  background-repeat: no-repeat;
+}
+.footer__extra {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  gap: clamp(1.25rem, 0.5357142857rem + 3.5714285714vw, 3.75rem);
+  background-color: var(--color-dark-gray);
+  color: rgba(255, 255, 255, 0.7);
+  justify-content: center;
+  margin: 0 auto;
+  font-weight: 500;
+  font-size: clamp(0.875rem, 0.8392857143rem + 0.1785714286vw, 1rem);
+}
+@media (width <= 46.93625rem) {
+  .footer__extra {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer__extra-profession {
+    order: -1;
+  }
+}
+.footer__extra-name {
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=main.css.map */

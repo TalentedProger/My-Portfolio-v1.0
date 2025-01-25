@@ -1,0 +1,41 @@
+@import './../styles/functions' , '../styles/media';
+
+.portfolio {
+	padding-block: fluid(80,40);
+	background-color: #FDF5E6;
+	background-color: var(--color-black);
+
+	&__container-name {
+		background:url("../assets/background-clip-img.jpg") no-repeat, center/cover;
+		background-clip: text;
+		-webkit-background-clip:text;
+		-webkit-text-fill-color: transparent; 
+		font-size:fluid(62,28);
+		font-weight: 900;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	&__item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: rem(20);
+	padding: rem(20) rem(70) rem(50) rem(70);
+
+	@include mobile {
+		padding: rem(20) rem(10) rem(50) rem(10);
+	}
+
+	}
+	&__item-image {
+		border-radius: rem(40);
+		max-height: rem(470);
+	}
+	&__item-name {
+		font-weight: 700;
+		font-size: fluid(24,16);
+		color: 	var(--color-white);
+		text-wrap: nowrap;
+	}
+}

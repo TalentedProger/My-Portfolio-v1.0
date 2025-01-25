@@ -1,0 +1,66 @@
+@import './../styles/functions';
+@import './../styles/media';
+
+.header {
+	background: var(--color-dark) linear-gradient(var(--gradient));
+	color: var(--color-white);
+	padding: fluid(80,20) fluid(120,20);
+	// border-bottom-right-radius: rem(100);
+	font-family: var(--font);
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		gap: rem(60);
+
+		@include tablet {
+			flex-direction: column;
+		}
+	}
+	&__image {
+		border-radius: fluid(80,30);
+	}
+	&__info {
+		display: flex;
+		flex-direction: column;
+
+		@include tablet {
+			align-items: center;
+		}
+		&-name {
+			font-size: fluid(60,32);
+			font-weight: 700;
+			margin-bottom: rem(10);
+		}
+
+		&-profession {
+			font-size: fluid(26,18);
+			font-weight:300;
+			margin-bottom: rem(30);
+
+			@include tablet {
+				text-align: center;
+			}
+
+			@include mobile-s {
+				text-align: left;
+			}
+		}
+		&-btns {
+			display: flex;
+			gap: rem(30);
+		}
+	}
+	.portfolio-link, .contact-link {
+		transition: all 0.25s ease-in;
+	}
+	.portfolio-link:hover {
+		background-color: var(--color-yellow);
+		color: var(--color-black);
+		transform: scale(102%);
+	}
+	.contact-link:hover {
+		border-color: var(--color-yellow);
+		transform: scale(102%);	
+	}
+}

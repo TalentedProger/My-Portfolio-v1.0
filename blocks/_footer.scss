@@ -1,0 +1,97 @@
+@import './../styles/functions' , '../styles/media';
+
+.footer {
+	background: var(--color-dark) linear-gradient(var(--gradient));
+	color: var(--color-white);
+	&__main{
+		padding-block: fluid(80,40);
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+	}
+	&__name{
+		font-size: fluid(54,28);
+		font-weight: 700;
+		text-align: center;
+	}
+	&__contact-list{
+		display: grid;
+		gap: fluid(40,30);
+		margin: 0 auto;
+		grid-template-columns: repeat(2,2fr);
+
+		@include tablet-s {
+		grid-template-columns: repeat(1,4fr);
+		}
+		}
+		&__contact-item{
+			position: relative;
+			align-items: center;
+			text-wrap: nowrap;
+			font-size: rem(18);
+			border-radius: rem(8);
+			padding: fluid(20,15) fluid(20,15) fluid(25,15) rem(25);
+			font-weight: 700;
+			color: var(--color-black);
+			background-color: var(--color-yellow);
+			min-width: rem(314);
+			transition: var(--transition);
+			&:hover {
+				background-color: var(--color-white);
+				transform: scale(110%);
+				box-shadow: var(--button-shadow);
+			}
+	
+			&--telegram::before {
+				background: url('./../assets/icons/telegram.svg');
+			}
+			&--git::before {
+				background: url('./../assets/icons/github-svgrepo-com.svg');
+			}
+			&--vk::before {
+				background: url('./../assets/icons/vk.svg');
+			}
+			&--wats::before {
+				background: url('./../assets/icons/whatsapp.svg');
+			}
+	
+			&::before {
+				content: "";
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: rem(40);
+				height: rem(40);
+				margin-right: rem(10);
+				background-repeat: no-repeat;
+			}
+		}
+	
+		&__extra{
+			display: flex;
+			align-items: center;
+			padding: rem(20);
+			gap: fluid(60,20);
+			background-color: var(--color-dark-gray);
+			color: rgba($color: #FFFFFF, $alpha: 0.7);
+			justify-content: center;
+			margin: 0 auto;
+			font-weight: 500;
+			font-size: fluid(16,14);
+	
+			@include tablet-s {
+				flex-direction: column;
+				align-items: center;
+				text-align: center;
+				&-profession{
+					order: -1;
+				}
+			}
+	
+			&-name{
+				font-weight: 600;
+			}
+		}
+	}
+	
