@@ -343,7 +343,11 @@ body a {
   }
 }
 .header__image {
-  border-radius: clamp(1.875rem, 0.9821428571rem + 4.4642857143vw, 5rem);
+  border-radius: 50%;
+  width: 350px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.65) 0px 14px 28px, rgba(0, 0, 0, 0.55) 0px 10px 10px;
 }
 .header__info {
   display: flex;
@@ -394,6 +398,7 @@ body a {
 .portfolio {
   padding-block: clamp(2.5rem, 1.7857142857rem + 3.5714285714vw, 5rem);
   background-color: var(--color-smoky-black);
+  background-color: black;
 }
 .portfolio__container-name {
   background: url("../assets/background-clip-img.jpg") no-repeat, center/cover;
@@ -470,6 +475,7 @@ body a {
   height: 6.25rem;
   border-radius: 50%;
   background-color: var(--color-white);
+  box-shadow: rgba(250, 255, 255, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.15) 0px 10px 10px;
 }
 .my-technologies__item--html::before {
   background: url("../assets/icons/html-5-svgrepo-com.svg");
@@ -536,7 +542,7 @@ body a {
 }
 
 .footer {
-  background: var(--color-dark) linear-gradient(var(--gradient));
+  background-color: black;
   color: var(--color-white);
 }
 .footer__main {
@@ -566,18 +572,17 @@ body a {
   align-items: center;
   text-wrap: nowrap;
   font-size: 1.125rem;
-  border-radius: 0.5rem;
+  border-radius: 1.125rem;
   padding: clamp(0.9375rem, 0.8482142857rem + 0.4464285714vw, 1.25rem) clamp(0.9375rem, 0.8482142857rem + 0.4464285714vw, 1.25rem) clamp(0.9375rem, 0.7589285714rem + 0.8928571429vw, 1.5625rem) 1.5625rem;
   font-weight: 700;
   color: var(--color-black);
   background-color: var(--color-yellow);
   min-width: 19.625rem;
-  transition: var(--transition);
+  transition: 0.25s ease-in-out;
 }
 .footer__contact-item:hover {
   background-color: var(--color-white);
-  transform: scale(110%);
-  box-shadow: var(--button-shadow);
+  transform: scale(105%);
 }
 .footer__contact-item--telegram::before {
   background: url("./../assets/icons/telegram.svg");

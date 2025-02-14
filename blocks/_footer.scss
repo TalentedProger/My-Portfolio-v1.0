@@ -1,7 +1,8 @@
 @import './../styles/functions' , '../styles/media';
 
 .footer {
-	background: var(--color-dark) linear-gradient(var(--gradient));
+	// background: var(--color-dark) linear-gradient(var(--gradient));
+	background-color: black;
 	color: var(--color-white);
 	&__main{
 		padding-block: fluid(80,40);
@@ -29,17 +30,18 @@
 			align-items: center;
 			text-wrap: nowrap;
 			font-size: rem(18);
-			border-radius: rem(8);
+			border-radius: rem(18);
 			padding: fluid(20,15) fluid(20,15) fluid(25,15) rem(25);
 			font-weight: 700;
 			color: var(--color-black);
 			background-color: var(--color-yellow);
 			min-width: rem(314);
-			transition: var(--transition);
+			transition: 0.25s ease-in-out;
+
 			&:hover {
 				background-color: var(--color-white);
-				transform: scale(110%);
-				box-shadow: var(--button-shadow);
+				transform: scale(105%);
+				// box-shadow: var(--button-shadow);
 			}
 	
 			&--telegram::before {

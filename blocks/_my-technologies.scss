@@ -38,7 +38,7 @@
 	height: rem(100);
 	border-radius: 50%;
 	background-color: var(--color-white);
-
+	box-shadow: rgba(250, 255, 255, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.15) 0px 10px 10px;
 	&--html::before {
 		background: url("../assets/icons/html-5-svgrepo-com.svg");
 	}
