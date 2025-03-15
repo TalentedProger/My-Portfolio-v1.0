@@ -429,11 +429,10 @@ body a {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: clamp(1.75rem, 1.1428571429rem + 3.0357142857vw, 3.875rem);
+  font-size: clamp(1.625rem, 0.9821428571rem + 3.2142857143vw, 3.875rem);
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: rgba(135, 206, 250, 0.3) 10px 5px 10px;
 }
 .portfolio__item {
   display: flex;
@@ -450,6 +449,8 @@ body a {
 .portfolio__item-image {
   border-radius: 2.5rem;
   max-height: 29.375rem;
+  min-height: 12.5rem;
+  object-fit: cover;
 }
 .portfolio__item-name {
   position: relative;
