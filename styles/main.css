@@ -284,12 +284,30 @@ body a {
   color: var(--color-white) !important;
 }
 
+.swiper-button-prev, .swiper-button-next {
+  transition: all 0.2s ease-in-out;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  color: var(--color-yellow) !important;
+}
+
+@media (width <= 37.56125rem) {
+  .swiper-button-prev::after, .swiper-button-next::after {
+    font-size: 1.625rem !important;
+  }
+}
+
 .swiper-scrollbar {
   height: 6px !important;
   border-radius: 0.25rem !important;
   background-color: var(--color-white) !important;
   width: 80% !important;
   margin-inline: 10% !important;
+}
+@media (width <= 37.56125rem) {
+  .swiper-scrollbar {
+    height: 4px !important;
+  }
 }
 
 .swiper-scrollbar-drag {
@@ -306,6 +324,12 @@ body a {
 .swiper-pagination-bullet {
   background-color: var(--color-white) !important;
   opacity: 1 !important;
+}
+@media (width <= 37.56125rem) {
+  .swiper-pagination-bullet {
+    width: 0.375rem !important;
+    height: 0.375rem !important;
+  }
 }
 
 .swiper {
@@ -409,6 +433,7 @@ body a {
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
+  text-shadow: rgba(135, 206, 250, 0.3) 10px 5px 10px;
 }
 .portfolio__item {
   display: flex;
@@ -427,10 +452,29 @@ body a {
   max-height: 29.375rem;
 }
 .portfolio__item-name {
+  position: relative;
   font-weight: 700;
   font-size: clamp(1rem, 0.8571428571rem + 0.7142857143vw, 1.5rem);
   color: var(--color-white);
   text-wrap: nowrap;
+  transition: all 0.25s ease-in-out;
+}
+.portfolio__item-name::before {
+  content: "";
+  position: absolute;
+  height: 0.125rem;
+  width: 100%;
+  bottom: -0.25rem;
+  background-color: var(--color-yellow);
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+}
+.portfolio__item-name:hover {
+  color: var(--color-yellow);
+  transform: scaleX(105%);
+}
+.portfolio__item-name:hover::before {
+  opacity: 1;
 }
 
 .my-technologies {

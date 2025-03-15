@@ -1,6 +1,5 @@
 @import './../styles/functions';
-
-
+@import './../styles/media';
 .swiper-pagination {
 	padding-block: rem(10);
 }
@@ -10,13 +9,27 @@
 .swiper-button-next {
 	color: var(--color-white) !important;
 }
-
+.swiper-button-prev,.swiper-button-next {
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		color: var(--color-yellow) !important;
+	}
+}
+.swiper-button-prev::after,.swiper-button-next::after {
+	@include mobile {
+		font-size: rem(26) !important;
+	}
+}
 .swiper-scrollbar {
 height: 6px !important;
 border-radius: rem(4) !important;
 background-color: var(--color-white) !important;
 width: 80% !important;
 margin-inline: 10% !important;
+
+@include mobile {
+	height: 4px !important;
+}
 }
 
 .swiper-scrollbar-drag {
@@ -32,6 +45,11 @@ padding-inline: rem(20);
 .swiper-pagination-bullet {
   background-color: var(--color-white) !important;
   opacity: 1 !important;
+
+	@include mobile {
+		width: rem(6) !important;
+		height: rem(6) !important;
+	}
 }
 
 .swiper {

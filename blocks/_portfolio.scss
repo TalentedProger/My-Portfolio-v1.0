@@ -14,6 +14,7 @@
 		font-weight: 900;
 		text-transform: uppercase;
 		text-align: center;
+		text-shadow: rgba(135,206,250,0.3) 10px 5px 10px;
 	}
 
 	&__item {
@@ -33,9 +34,29 @@
 		max-height: rem(470);
 	}
 	&__item-name {
+		position: relative;
 		font-weight: 700;
 		font-size: fluid(24,16);
 		color: 	var(--color-white);
 		text-wrap: nowrap;
+		transition: all 0.25s ease-in-out;
+
+		&::before {
+			content: "";
+			position: absolute;
+			height: rem(2);
+			width: 100%;
+			bottom: rem(-4);
+			background-color: var(--color-yellow);
+			opacity: 0;
+			transition: all 0.25s ease-in-out;
+		}
+		&:hover {
+			color: var(--color-yellow);
+			transform: scaleX(105%);
+		}
+		&:hover::before {
+			opacity: 1;
+		}
 	}
 }
